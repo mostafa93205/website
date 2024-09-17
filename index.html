@@ -80,22 +80,34 @@
             }
         }
 
-        .logo {
+        .logo, .profile-pic {
             width: 100px;
-            margin-bottom: 20px;
+            height: 100px;
+            position: absolute;
+            transition: transform 0.3s ease;
+        }
+
+        .logo {
+            margin-top: 20px;
         }
 
         .profile-pic {
-            width: 150px;
-            height: 150px;
             border-radius: 50%;
-            margin-bottom: 10px;
             border: 5px solid white;
-            transition: transform 0.3s ease-in-out;
+            margin-top: 30px;
         }
 
-        .profile-pic:hover {
-            transform: scale(1.1);
+        .header-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .header-container:hover .logo {
+            transform: rotate(360deg);
+        }
+
+        .header-container:hover .profile-pic {
+            transform: rotate(-360deg);
         }
 
         h1 {
@@ -212,9 +224,11 @@
     </nav>
 
     <header>
-        <!-- Logo -->
-        <img src="your-logo.png" alt="Logo" class="logo">
-        <img src="your-photo.jpg" alt="Profile Picture" class="profile-pic">
+        <div class="header-container">
+            <!-- Logo and Profile Picture -->
+            <img src="your-logo.png" alt="Logo" class="logo">
+            <img src="your-photo.jpg" alt="Profile Picture" class="profile-pic">
+        </div>
         <h1>Mostafa Emad Salah Hamdy</h1>
         <p>Passionate about Programming and Gaming</p>
     </header>
