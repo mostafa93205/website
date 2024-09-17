@@ -87,10 +87,10 @@
 
         .header-container {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
             gap: 20px;
-            position: relative;
+            flex-wrap: wrap; /* Added to ensure responsiveness */
         }
 
         .logo, .profile-pic {
@@ -230,6 +230,7 @@
 
             .header-container {
                 flex-direction: column;
+                gap: 10px; /* Reduced gap for smaller screens */
             }
 
             .logo, .profile-pic {
