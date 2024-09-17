@@ -27,6 +27,12 @@
             top: 0;
             left: 0;
             z-index: 1000;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        nav.scrolled {
+            background-color: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         nav ul {
@@ -98,7 +104,8 @@
         .logo, .profile-pic {
             width: 120px;
             height: 120px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .logo {
@@ -109,6 +116,10 @@
         .profile-pic {
             border-radius: 50%;
             border: 5px solid white;
+        }
+
+        .header-container img.show {
+            opacity: 1;
         }
 
         .header-container:hover .logo,
@@ -136,6 +147,7 @@
             border-radius: 8px;
             max-width: 800px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            position: relative;
             transform: translateY(50px);
             opacity: 0;
             transition: transform 0.5s ease, opacity 0.5s ease;
@@ -152,6 +164,11 @@
             color: #eee;
             position: relative;
             padding-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        h2:hover {
+            transform: scale(1.05) rotate(2deg);
         }
 
         h2::after {
@@ -323,37 +340,38 @@
         <p>Passionate about Programming and Gaming</p>
     </header>
 
-    <section id="info" class="info">
+    <section id="info">
         <h2>Personal Information</h2>
-        <p><strong>Age:</strong> <span id="age"></span></p>
-        <p><strong>Email:</strong> <a href="mailto:mommm93205@gmail.com">mommm93205@gmail.com</a></p>
+        <p>Welcome to my personal page. I'm a 19-year-old student specializing in Health Sciences with a love for programming and gaming.</p>
     </section>
 
-    <section id="certificates" class="certificates">
-        <h2>Qualifications and Certificates</h2>
+    <section id="certificates">
+        <h2>Certifications</h2>
         <ul>
             <li>ISO 45001/2018: Occupational Safety and Health Management System</li>
-            <li>Attendance Certificate at Third International Biotechnology Conference, Mast University</li>
-            <li>Data Science: Completion Certificate from Moka Satar</li>
-            <li>Python 101: Completion Certificate from Moka Satar</li>
-            <li>Body Language & Business Etiquette: Almentor Platform</li>
+            <li>Third International Biotechnology Conference, Mast University</li>
+            <li>Data Science: Completion Certificate from moka satar</li>
+            <li>Python 101: Completion Certificate from moka satar</li>
+            <li>Body Language & Business Etiquette: Almentor platform</li>
             <li>Digital Marketing: Misr University for Science and Technology (MUST), 2024</li>
         </ul>
     </section>
 
-    <section id="education" class="education">
+    <section id="education">
         <h2>Education</h2>
-        <p>Faculty of Health Sciences - Health Administration&Informat</p>
+        <p>I am currently pursuing a degree in Health Sciences with a focus on management.</p>
     </section>
 
-    <section id="social-media" class="social-media">
-        <h2>Social Media</h2>
-        <ul>
-            <li><a href="https://www.facebook.com/mommm93205/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://discord.com/users/705851962851196962" target="_blank"><i class="fab fa-discord"></i></a></li>
-            <li><a href="https://www.instagram.com/lahn_alhout/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/mostafaelhout" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-        </ul>
+    <section id="social-media">
+        <h2>Connect with Me</h2>
+        <div class="social-media">
+            <ul>
+                <li><a href="https://youtube.com/yourchannel" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="https://instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://twitter.com/yourprofile" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+        </div>
     </section>
 
     <footer>
@@ -361,32 +379,30 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Function to calculate age
-            function calculateAge(dateOfBirth) {
-                const today = new Date();
-                const birthDate = new Date(dateOfBirth);
-                let age = today.getFullYear() - birthDate.getFullYear();
-                const monthDifference = today.getMonth() - birthDate.getMonth();
-                if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
-                    age--;
-                }
-                return age;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
             }
 
-            // Set date of birth
-            const dateOfBirth = '2005-03-01'; // Change this to the correct birthdate
-            document.getElementById('age').textContent = calculateAge(dateOfBirth);
+            const images = document.querySelectorAll('.header-container img');
+            images.forEach(image => {
+                const imageTop = image.getBoundingClientRect().top;
+                const viewportHeight = window.innerHeight;
+                if (imageTop < viewportHeight * 0.8) {
+                    image.classList.add('show');
+                }
+            });
 
             const sections = document.querySelectorAll('section');
-            window.addEventListener('scroll', () => {
-                sections.forEach(section => {
-                    const sectionTop = section.getBoundingClientRect().top;
-                    const viewportHeight = window.innerHeight;
-                    if (sectionTop < viewportHeight * 0.8) {
-                        section.classList.add('show');
-                    }
-                });
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const viewportHeight = window.innerHeight;
+                if (sectionTop < viewportHeight * 0.8) {
+                    section.classList.add('show');
+                }
             });
         });
     </script>
