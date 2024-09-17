@@ -8,7 +8,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #0a0a0a; /* Dark background for a techy feel */
+            color: #eee;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
@@ -53,8 +54,9 @@
         /* Header Section */
         header {
             text-align: center;
-            padding: 80px 20px 20px; /* Added padding-top to make room for the fixed navbar */
-            background-color: #333;
+            padding: 80px 20px 20px;
+            background: url('background-tech.gif') no-repeat center center fixed; /* Tech-themed background with animation */
+            background-size: cover;
             color: white;
             position: relative;
             overflow: hidden;
@@ -67,8 +69,9 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
-            animation: rotate 6s linear infinite;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+            animation: rotate 10s linear infinite;
+            mix-blend-mode: overlay;
         }
 
         @keyframes rotate {
@@ -84,18 +87,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px; /* Space between logo and profile picture */
+            gap: 20px;
             position: relative;
         }
 
         .logo, .profile-pic {
-            width: 100px;
-            height: 100px;
-            transition: transform 0.3s ease;
+            width: 120px;
+            height: 120px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .logo {
-            border: 2px solid white;
+            border: 3px solid white;
             border-radius: 50%;
         }
 
@@ -104,12 +107,10 @@
             border: 5px solid white;
         }
 
-        .header-container:hover .logo {
-            transform: rotate(360deg);
-        }
-
+        .header-container:hover .logo,
         .header-container:hover .profile-pic {
-            transform: rotate(-360deg);
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); /* Neon glow effect */
         }
 
         h1 {
@@ -123,12 +124,12 @@
 
         /* Sections */
         section {
-            background-color: white;
+            background-color: #1f1f1f; /* Dark background for sections */
             margin: 20px auto;
             padding: 20px;
             border-radius: 8px;
             max-width: 800px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
             transform: translateY(50px);
             opacity: 0;
             transition: transform 0.5s ease, opacity 0.5s ease;
@@ -142,7 +143,7 @@
         h2 {
             font-size: 1.8em;
             margin-bottom: 10px;
-            color: #333;
+            color: #eee;
             position: relative;
         }
 
@@ -178,14 +179,15 @@
         }
 
         .social-media a {
-            color: #333;
+            color: #eee;
             text-decoration: none;
             font-size: 2em;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .social-media a:hover {
             color: #3498db;
+            transform: scale(1.2); /* Slight zoom effect */
         }
 
         /* Footer */
@@ -264,20 +266,20 @@
     </section>
 
     <footer>
-        <p>© 2024 Mostafa Emad Salah Hamdy - All Rights Reserved</p>
+        <p>&copy; 2024 Mostafa Emad Salah Hamdy. All rights reserved.</p>
     </footer>
 
     <script>
-        // Function to add show class when the section comes into view
-        const sections = document.querySelectorAll('section');
-
-        window.addEventListener('scroll', function() {
-            const scrollPosition = window.scrollY + window.innerHeight;
-
-            sections.forEach(section => {
-                if (scrollPosition > section.offsetTop + 100) {
-                    section.classList.add('show');
-                }
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            window.addEventListener('scroll', () => {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const viewportHeight = window.innerHeight;
+                    if (sectionTop < viewportHeight * 0.8) {
+                        section.classList.add('show');
+                    }
+                });
             });
         });
     </script>
