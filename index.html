@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mostafa Emad Salah Hamdy - Personal Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="your-favicon.ico" type="image/x-icon"> <!-- إضافة favicon هنا -->
+    <link rel="icon" href="your-favicon.ico" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,13 +27,11 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+            transition: background-color 0.3s;
         }
 
         nav.scrolled {
-            background-color: rgba(0, 0, 0, 0.9);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            transform: translateY(-10px); /* Slight upward shift */
+            background-color: #222; /* Darker background when scrolled */
         }
 
         nav ul {
@@ -53,12 +51,11 @@
             color: white;
             text-decoration: none;
             font-size: 1em;
-            transition: color 0.3s, text-shadow 0.3s;
+            transition: color 0.3s;
         }
 
         nav ul li a:hover {
             color: #3498db;
-            text-shadow: 0 0 5px rgba(0, 255, 255, 0.7); /* Neon glow effect */
         }
 
         /* Header Section */
@@ -98,16 +95,15 @@
             justify-content: center;
             align-items: center;
             gap: 20px;
-            flex-direction: row; /* Ensure horizontal layout */
-            flex-wrap: nowrap; /* Prevent wrapping */
-            margin-bottom: 20px; /* Add margin below the container */
+            flex-direction: row;
+            flex-wrap: nowrap;
+            margin-bottom: 20px;
         }
 
         .logo, .profile-pic {
             width: 120px;
             height: 120px;
-            opacity: 0;
-            transition: opacity 1s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .logo {
@@ -120,55 +116,39 @@
             border: 5px solid white;
         }
 
-        .header-container img.show {
-            opacity: 1;
-        }
-
         .header-container:hover .logo,
         .header-container:hover .profile-pic {
-            transform: scale(1.2) rotate(15deg);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.8); /* Enhanced neon glow effect */
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); /* Neon glow effect */
         }
 
         h1 {
             font-size: 2.5em;
             animation: fadeInDown 1s ease-out;
             margin: 0;
-            transition: transform 0.3s ease;
-        }
-
-        h1:hover {
-            transform: scale(1.05);
         }
 
         p {
             font-size: 1.2em;
             margin: 0;
-            transition: color 0.3s;
-        }
-
-        p:hover {
-            color: #3498db; /* Change color on hover */
         }
 
         /* Sections */
         section {
-            background-color: #1f1f1f; /* Dark background for sections */
+            background-color: #1f1f1f;
             margin: 20px auto;
             padding: 20px;
             border-radius: 8px;
             max-width: 800px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-            position: relative;
             transform: translateY(50px);
             opacity: 0;
-            transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.3s;
+            transition: transform 0.5s ease, opacity 0.5s ease;
         }
 
         section.show {
             transform: translateY(0);
             opacity: 1;
-            box-shadow: 0 0 20px rgba(0, 0, 255, 0.3); /* Blue glow effect on visible */
         }
 
         h2 {
@@ -177,12 +157,6 @@
             color: #eee;
             position: relative;
             padding-bottom: 10px;
-            transition: transform 0.3s ease, color 0.3s;
-        }
-
-        h2:hover {
-            transform: scale(1.05) rotate(2deg);
-            color: #3498db; /* Color change on hover */
         }
 
         h2::after {
@@ -193,11 +167,6 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            transition: width 0.3s ease;
-        }
-
-        h2:hover::after {
-            width: 100px; /* Expanding underline effect */
         }
 
         ul {
@@ -232,7 +201,6 @@
         .social-media a:hover {
             color: #3498db;
             transform: scale(1.2); /* Slight zoom effect */
-            text-shadow: 0 0 5px rgba(0, 255, 255, 0.7); /* Neon glow effect */
         }
 
         /* Footer */
@@ -269,7 +237,7 @@
 
             .header-container {
                 flex-direction: column;
-                gap: 10px; /* Reduced gap for smaller screens */
+                gap: 10px;
             }
 
             .logo, .profile-pic {
@@ -327,7 +295,7 @@
             }
 
             h2 {
-                font-size: 1.2em;
+                font-size: 1.3em;
             }
 
             ul li {
@@ -335,7 +303,7 @@
             }
 
             .social-media a {
-                font-size: 1.2em;
+                font-size: 1.3em;
             }
         }
     </style>
@@ -343,7 +311,7 @@
 <body>
     <nav>
         <ul>
-            <li><a href="#info">Info</a></li>
+            <li><a href="#info">Personal Info</a></li>
             <li><a href="#certificates">Certificates</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#social-media">Social Media</a></li>
@@ -352,45 +320,45 @@
 
     <header>
         <div class="header-container">
-            <img src="logo.png" alt="Logo" class="logo">
-            <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+            <img src="your-logo.png" alt="Logo" class="logo">
+            <img src="your-photo.jpg" alt="Profile Picture" class="profile-pic">
         </div>
         <h1>Mostafa Emad Salah Hamdy</h1>
-        <p>Welcome to my personal page!</p>
+        <p>Passionate about Programming and Gaming</p>
     </header>
 
     <section id="info">
         <h2>Personal Information</h2>
-        <p>Welcome to my personal page. I'm a 19-year-old student specializing in Health Sciences with a love for programming and gaming.</p>
+        <p><strong>Age:</strong> <span id="age"></span></p>
+        <p><strong>Email:</strong> <a href="mailto:mommm93205@gmail.com">mommm93205@gmail.com</a></p>
     </section>
 
     <section id="certificates">
-        <h2>Certifications</h2>
+        <h2>Qualifications and Certificates</h2>
         <ul>
             <li>ISO 45001/2018: Occupational Safety and Health Management System</li>
-            <li>Third International Biotechnology Conference, Mast University</li>
-            <li>Data Science: Completion Certificate from moka satar</li>
-            <li>Python 101: Completion Certificate from moka satar</li>
-            <li>Body Language & Business Etiquette: Almentor platform</li>
+            <li>Attendance Certificate at Third International Biotechnology Conference, Mast University</li>
+            <li>Data Science: Completion Certificate from Moka Satar</li>
+            <li>Python 101: Completion Certificate from Moka Satar</li>
+            <li>Body Language & Business Etiquette: Almentor Platform</li>
             <li>Digital Marketing: Misr University for Science and Technology (MUST), 2024</li>
         </ul>
     </section>
 
     <section id="education">
         <h2>Education</h2>
-        <p>I am currently pursuing a degree in Health Sciences with a focus on management.</p>
+        <p>Studying Health Sciences with a focus on Management</p>
     </section>
 
-    <section id="social-media">
-        <h2>Connect with Me</h2>
-        <div class="social-media">
-            <ul>
-                <li><a href="https://youtube.com/yourchannel" target="_blank"><i class="fab fa-youtube"></i></a></li>
-                <li><a href="https://instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="https://twitter.com/yourprofile" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-            </ul>
-        </div>
+    <section id="social-media" class="social-media">
+        <h2>Social Media</h2>
+        <ul>
+            <li><a href="https://www.youtube.com/@elhoutGaming" target="_blank" class="fab fa-youtube" title="YouTube Channel"></a></li>
+            <li><a href="https://kick.com/dr-wable" target="_blank" class="fab fa-kickstarter" title="Kick Profile"></a></li>
+            <li><a href="https://www.facebook.com/mommm93205" target="_blank" class="fab fa-facebook" title="Facebook Profile"></a></li>
+            <li><a href="https://discord.com/users/705851962851196962" target="_blank" class="fab fa-discord" title="Discord Profile"></a></li>
+            <li><a href="https://www.linkedin.com/in/mostafaelhout/" target="_blank" class="fab fa-linkedin" title="LinkedIn Profile"></a></li>
+        </ul>
     </section>
 
     <footer>
@@ -398,32 +366,19 @@
     </footer>
 
     <script>
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
+        // Script to calculate and display age
+        function calculateAge(birthDate) {
+            const today = new Date();
+            const birth = new Date(birthDate);
+            let age = today.getFullYear() - birth.getFullYear();
+            const m = today.getMonth() - birth.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+                age--;
             }
+            return age;
+        }
 
-            const images = document.querySelectorAll('.header-container img');
-            images.forEach(image => {
-                const imageTop = image.getBoundingClientRect().top;
-                const viewportHeight = window.innerHeight;
-                if (imageTop < viewportHeight * 0.8) {
-                    image.classList.add('show');
-                }
-            });
-
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const viewportHeight = window.innerHeight;
-                if (sectionTop < viewportHeight * 0.8) {
-                    section.classList.add('show');
-                }
-            });
-        });
+        document.getElementById('age').textContent = calculateAge('2005-03-01');
     </script>
 </body>
 </html>
