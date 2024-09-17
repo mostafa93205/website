@@ -12,12 +12,48 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #3498db;
         }
 
         /* Header Section */
         header {
             text-align: center;
-            padding: 20px;
+            padding: 80px 20px 20px; /* Added padding-top to make room for the fixed navbar */
             background-color: #333;
             color: white;
             position: relative;
@@ -166,6 +202,15 @@
     </style>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="#info">Personal Info</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#social-media">Social Media</a></li>
+        </ul>
+    </nav>
+
     <header>
         <!-- Logo -->
         <img src="your-logo.png" alt="Logo" class="logo">
@@ -174,13 +219,13 @@
         <p>Passionate about Programming and Gaming</p>
     </header>
 
-    <section class="info">
+    <section id="info" class="info">
         <h2>Personal Information</h2>
         <p><strong>Age:</strong> 19 (Born March 2005)</p>
         <p><strong>Email:</strong> <a href="mailto:mommm93205@gmail.com">mommm93205@gmail.com</a></p>
     </section>
 
-    <section class="certificates">
+    <section id="certificates" class="certificates">
         <h2>Qualifications and Certificates</h2>
         <ul>
             <li>ISO 45001/2018: Occupational Safety and Health Management System</li>
@@ -192,12 +237,12 @@
         </ul>
     </section>
 
-    <section class="education">
+    <section id="education" class="education">
         <h2>Education</h2>
         <p>Faculty of Health Sciences - Hospital Management Department</p>
     </section>
 
-    <section class="social-media">
+    <section id="social-media" class="social-media">
         <h2>Social Media</h2>
         <ul>
             <li><a href="https://www.facebook.com/mommm93205/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
