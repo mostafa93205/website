@@ -80,26 +80,28 @@
             }
         }
 
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Space between logo and profile picture */
+            position: relative;
+        }
+
         .logo, .profile-pic {
             width: 100px;
             height: 100px;
-            position: absolute;
             transition: transform 0.3s ease;
         }
 
         .logo {
-            margin-top: 20px;
+            border: 2px solid white;
+            border-radius: 50%;
         }
 
         .profile-pic {
             border-radius: 50%;
             border: 5px solid white;
-            margin-top: 30px;
-        }
-
-        .header-container {
-            position: relative;
-            display: inline-block;
         }
 
         .header-container:hover .logo {
@@ -205,11 +207,6 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-
-        /* Scroll Effects */
-        body {
-            scroll-behavior: smooth;
         }
     </style>
 </head>
