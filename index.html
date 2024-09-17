@@ -235,7 +235,7 @@
 
     <section id="info" class="info">
         <h2>Personal Information</h2>
-        <p><strong>Age:</strong> 19 (Born March 2005)</p>
+        <p><strong>Age:</strong> <span id="age"></span></p>
         <p><strong>Email:</strong> <a href="mailto:mommm93205@gmail.com">mommm93205@gmail.com</a></p>
     </section>
 
@@ -272,6 +272,22 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Function to calculate age
+            function calculateAge(dateOfBirth) {
+                const today = new Date();
+                const birthDate = new Date(dateOfBirth);
+                let age = today.getFullYear() - birthDate.getFullYear();
+                const monthDifference = today.getMonth() - birthDate.getMonth();
+                if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+                    age--;
+                }
+                return age;
+            }
+
+            // Set date of birth
+            const dateOfBirth = '2005-03-01'; // Change this to the correct birthdate
+            document.getElementById('age').textContent = calculateAge(dateOfBirth);
+
             const sections = document.querySelectorAll('section');
             window.addEventListener('scroll', () => {
                 sections.forEach(section => {
