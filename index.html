@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostafa Emad Salah Hamdy - Personal Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+            animation: rotate 6s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 5px solid white;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.1);
+        }
+
+        /* Logo Styles */
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        /* Sections */
+        section {
+            background-color: white;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(50px);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        section.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #333;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 50px;
+            height: 2px;
+            background-color: #3498db;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        /* Social Links */
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #2980b9;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Effects */
+        body {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo -->
+        <img src="your-logo.png" alt="Logo" class="logo">
+        <img src="your-photo.jpg" alt="Profile Picture" class="profile-pic">
+        <h1>Mostafa Emad Salah Hamdy</h1>
+        <p>Passionate about Programming and Gaming</p>
+    </header>
+
+    <section class="info">
+        <h2>Personal Information</h2>
+        <p><strong>Age:</strong> 19 (Born March 2005)</p>
+        <p><strong>Email:</strong> <a href="mailto:mommm93205@gmail.com">mommm93205@gmail.com</a></p>
+    </section>
+
+    <section class="certificates">
+        <h2>Qualifications and Certificates</h2>
+        <ul>
+            <li>ISO 45001/2018: Occupational Safety and Health Management System</li>
+            <li>Attendance Certificate at Third International Biotechnology Conference, Mast University</li>
+            <li>Data Science: Completion Certificate from Moka Satar</li>
+            <li>Python 101: Completion Certificate from Moka Satar</li>
+            <li>Body Language & Business Etiquette: Almentor Platform</li>
+            <li>Digital Marketing: Misr University for Science and Technology (MUST), 2024</li>
+        </ul>
+    </section>
+
+    <section class="education">
+        <h2>Education</h2>
+        <p>Faculty of Health Sciences - Hospital Management Department</p>
+    </section>
+
+    <section class="social-media">
+        <h2>Social Media</h2>
+        <ul>
+            <li><a href="https://www.facebook.com/mommm93205/" target="_blank">Facebook</a></li>
+            <li><a href="https://discord.com/users/705851962851196962" target="_blank">Discord</a></li>
+            <li><a href="https://www.instagram.com/lahn_alhout/" target="_blank">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/in/mostafaelhout" target="_blank">LinkedIn</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© 2024 Mostafa Emad Salah Hamdy - All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Function to add show class when the section comes into view
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY + window.innerHeight;
+
+            sections.forEach(section => {
+                if (scrollPosition > section.offsetTop + 100) {
+                    section.classList.add('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
