@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mostafa Emad Salah Hamdy - Personal Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="your-favicon.ico" type="image/x-icon">
+    <link rel="icon" href="your-favicon.ico" type="image/x-icon"> <!-- إضافة favicon هنا -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,11 +27,6 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            transition: background-color 0.3s;
-        }
-
-        nav.scrolled {
-            background-color: #222; /* Darker background when scrolled */
         }
 
         nav ul {
@@ -69,34 +64,11 @@
             overflow: hidden;
         }
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
-            animation: rotate 10s linear infinite;
-            mix-blend-mode: overlay;
-        }
-
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
         .header-container {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 20px;
-            flex-direction: row;
-            flex-wrap: nowrap;
             margin-bottom: 20px;
         }
 
@@ -135,19 +107,17 @@
 
         /* Sections */
         section {
-            background-color: #1f1f1f;
+            background-color: #1f1f1f; /* Dark background for sections */
             margin: 20px auto;
             padding: 20px;
             border-radius: 8px;
             max-width: 800px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-            transform: translateY(50px);
             opacity: 0;
-            transition: transform 0.5s ease, opacity 0.5s ease;
+            transition: opacity 0.5s ease;
         }
 
         section.show {
-            transform: translateY(0);
             opacity: 1;
         }
 
@@ -237,7 +207,7 @@
 
             .header-container {
                 flex-direction: column;
-                gap: 10px;
+                gap: 10px; /* Reduced gap for smaller screens */
             }
 
             .logo, .profile-pic {
@@ -320,6 +290,7 @@
 
     <header>
         <div class="header-container">
+            <!-- Logo and Profile Picture -->
             <img src="your-logo.png" alt="Logo" class="logo">
             <img src="your-photo.jpg" alt="Profile Picture" class="profile-pic">
         </div>
@@ -347,17 +318,18 @@
 
     <section id="education">
         <h2>Education</h2>
-        <p>Studying Health Sciences with a focus on Management</p>
+        <p>Faculty of Health Sciences - Hospital Management Department</p>
     </section>
 
     <section id="social-media" class="social-media">
         <h2>Social Media</h2>
         <ul>
-            <li><a href="https://www.youtube.com/@elhoutGaming" target="_blank" class="fab fa-youtube" title="YouTube Channel"></a></li>
-            <li><a href="https://kick.com/dr-wable" target="_blank" class="fab fa-kickstarter" title="Kick Profile"></a></li>
-            <li><a href="https://www.facebook.com/mommm93205" target="_blank" class="fab fa-facebook" title="Facebook Profile"></a></li>
-            <li><a href="https://discord.com/users/705851962851196962" target="_blank" class="fab fa-discord" title="Discord Profile"></a></li>
-            <li><a href="https://www.linkedin.com/in/mostafaelhout/" target="_blank" class="fab fa-linkedin" title="LinkedIn Profile"></a></li>
+            <li><a href="https://www.facebook.com/mommm93205" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://discord.com/users/705851962851196962" target="_blank"><i class="fab fa-discord"></i></a></li>
+            <li><a href="https://www.instagram.com/lahn_alhout/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/mostafaelhout/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="https://kick.com/dr-wable" target="_blank"><i class="fab fa-kickstarter"></i></a></li>
+            <li><a href="https://www.youtube.com/@elhoutGaming" target="_blank"><i class="fab fa-youtube"></i></a></li>
         </ul>
     </section>
 
@@ -366,19 +338,34 @@
     </footer>
 
     <script>
-        // Script to calculate and display age
-        function calculateAge(birthDate) {
-            const today = new Date();
-            const birth = new Date(birthDate);
-            let age = today.getFullYear() - birth.getFullYear();
-            const m = today.getMonth() - birth.getMonth();
-            if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
-                age--;
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to calculate age
+            function calculateAge(dateOfBirth) {
+                const today = new Date();
+                const birthDate = new Date(dateOfBirth);
+                let age = today.getFullYear() - birthDate.getFullYear();
+                const monthDifference = today.getMonth() - birthDate.getMonth();
+                if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+                    age--;
+                }
+                return age;
             }
-            return age;
-        }
 
-        document.getElementById('age').textContent = calculateAge('2005-03-01');
+            // Set date of birth
+            const dateOfBirth = '2005-03-01'; // Change this to the correct birthdate
+            document.getElementById('age').textContent = calculateAge(dateOfBirth);
+
+            const sections = document.querySelectorAll('section');
+            window.addEventListener('scroll', () => {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const viewportHeight = window.innerHeight;
+                    if (sectionTop < viewportHeight * 0.8) {
+                        section.classList.add('show');
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
