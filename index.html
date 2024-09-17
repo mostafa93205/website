@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mostafa Emad Salah Hamdy - Personal Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -43,6 +44,11 @@
             }
         }
 
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
         .profile-pic {
             width: 150px;
             height: 150px;
@@ -54,12 +60,6 @@
 
         .profile-pic:hover {
             transform: scale(1.1);
-        }
-
-        /* Logo Styles */
-        .logo {
-            width: 100px;
-            margin-bottom: 20px;
         }
 
         h1 {
@@ -117,14 +117,25 @@
         }
 
         /* Social Links */
-        a {
-            color: #3498db;
+        .social-media ul {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .social-media li {
+            margin: 0 15px;
+        }
+
+        .social-media a {
+            color: #333;
             text-decoration: none;
+            font-size: 2em;
             transition: color 0.3s ease;
         }
 
-        a:hover {
-            color: #2980b9;
+        .social-media a:hover {
+            color: #3498db;
         }
 
         /* Footer */
@@ -189,10 +200,10 @@
     <section class="social-media">
         <h2>Social Media</h2>
         <ul>
-            <li><a href="https://www.facebook.com/mommm93205/" target="_blank">Facebook</a></li>
-            <li><a href="https://discord.com/users/705851962851196962" target="_blank">Discord</a></li>
-            <li><a href="https://www.instagram.com/lahn_alhout/" target="_blank">Instagram</a></li>
-            <li><a href="https://www.linkedin.com/in/mostafaelhout" target="_blank">LinkedIn</a></li>
+            <li><a href="https://www.facebook.com/mommm93205/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://discord.com/users/705851962851196962" target="_blank"><i class="fab fa-discord"></i></a></li>
+            <li><a href="https://www.instagram.com/lahn_alhout/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/mostafaelhout" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
         </ul>
     </section>
 
